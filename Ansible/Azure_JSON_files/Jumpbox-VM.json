@@ -1,0 +1,61 @@
+{
+    "name": "OffSec-Jumpbox",
+    "id": "/subscriptions/737d6856-35c6-46bf-a9af-954ae0684a10/resourceGroups/OFFSEC/providers/Microsoft.Compute/virtualMachines/OffSec-Jumpbox",
+    "type": "Microsoft.Compute/virtualMachines",
+    "location": "eastus2",
+    "properties": {
+        "vmId": "fd2698f4-6ae0-4717-ab9f-fb346b70b56d",
+        "hardwareProfile": {
+            "vmSize": "Standard_B1s"
+        },
+        "storageProfile": {
+            "imageReference": {
+                "publisher": "Canonical",
+                "offer": "UbuntuServer",
+                "sku": "18.04-LTS",
+                "version": "latest"
+            },
+            "osDisk": {
+                "osType": "Linux",
+                "name": "OffSec-Jumpbox_OsDisk_1_b0e52cd0e88445cfb3021f724602c15a",
+                "createOption": "FromImage",
+                "caching": "ReadWrite",
+                "managedDisk": {
+                    "storageAccountType": "Premium_LRS",
+                    "id": "/subscriptions/737d6856-35c6-46bf-a9af-954ae0684a10/resourceGroups/OFFSEC/providers/Microsoft.Compute/disks/OffSec-Jumpbox_OsDisk_1_b0e52cd0e88445cfb3021f724602c15a"
+                },
+                "diskSizeGB": 30
+            },
+            "dataDisks": []
+        },
+        "osProfile": {
+            "computerName": "OffSec-Jumpbox",
+            "adminUsername": "azadmin",
+            "linuxConfiguration": {
+                "disablePasswordAuthentication": true,
+                "ssh": {
+                    "publicKeys": [
+                        {
+                            "path": "/home/azadmin/.ssh/authorized_keys",
+                            "keyData": "redacted"
+                        }
+                    ]
+                }
+            },
+            "secrets": []
+        },
+        "networkProfile": {
+            "networkInterfaces": [
+                {
+                    "id": "/subscriptions/737d6856-35c6-46bf-a9af-954ae0684a10/resourceGroups/OffSec/providers/Microsoft.Network/networkInterfaces/offsec-jumpbox487"
+                }
+            ]
+        },
+        "diagnosticsProfile": {
+            "bootDiagnostics": {
+                "enabled": true
+            }
+        },
+        "provisioningState": "Succeeded"
+    }
+}

@@ -1,0 +1,43 @@
+{
+    "name": "OffSec-VNET",
+    "id": "/subscriptions/737d6856-35c6-46bf-a9af-954ae0684a10/resourceGroups/OffSec/providers/Microsoft.Network/virtualNetworks/OffSec-VNET",
+    "etag": "W/\"f314718f-a948-4446-a38a-613b89acf4d6\"",
+    "type": "Microsoft.Network/virtualNetworks",
+    "location": "eastus2",
+    "tags": {},
+    "properties": {
+        "provisioningState": "Succeeded",
+        "resourceGuid": "6310f693-020c-44b0-ad9d-56ab212d9643",
+        "addressSpace": {
+            "addressPrefixes": [
+                "10.1.0.0/16"
+            ]
+        },
+        "subnets": [
+            {
+                "name": "OffSec-VNET-Subnet",
+                "id": "/subscriptions/737d6856-35c6-46bf-a9af-954ae0684a10/resourceGroups/OffSec/providers/Microsoft.Network/virtualNetworks/OffSec-VNET/subnets/OffSec-VNET-Subnet",
+                "etag": "W/\"f314718f-a948-4446-a38a-613b89acf4d6\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "addressPrefix": "10.1.0.0/24",
+                    "ipConfigurations": [
+                        {
+                            "id": "/subscriptions/737d6856-35c6-46bf-a9af-954ae0684a10/resourceGroups/OffSec/providers/Microsoft.Network/networkInterfaces/offsec-jumpbox487/ipConfigurations/ipconfig1"
+                        },
+                        {
+                            "id": "/subscriptions/737d6856-35c6-46bf-a9af-954ae0684a10/resourceGroups/OffSec/providers/Microsoft.Network/networkInterfaces/offsec-web-1460/ipConfigurations/ipconfig1"
+                        },
+                        {
+                            "id": "/subscriptions/737d6856-35c6-46bf-a9af-954ae0684a10/resourceGroups/OffSec/providers/Microsoft.Network/networkInterfaces/offsec-web-2675/ipConfigurations/ipconfig1"
+                        },
+                        {
+                            "id": "/subscriptions/737d6856-35c6-46bf-a9af-954ae0684a10/resourceGroups/OffSec/providers/Microsoft.Network/networkInterfaces/offsec-web-3560/ipConfigurations/ipconfig1"
+                        }
+                    ]
+                },
+                "type": "Microsoft.Network/virtualNetworks/subnets"
+            }
+        ]
+    }
+}

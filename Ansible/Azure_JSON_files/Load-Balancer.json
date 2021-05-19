@@ -1,0 +1,110 @@
+{
+    "name": "OffSec-LB",
+    "id": "/subscriptions/737d6856-35c6-46bf-a9af-954ae0684a10/resourceGroups/OffSec/providers/Microsoft.Network/loadBalancers/OffSec-LB",
+    "etag": "W/\"5da047cb-2637-497a-8227-8dff902385c2\"",
+    "type": "Microsoft.Network/loadBalancers",
+    "location": "eastus2",
+    "tags": {},
+    "properties": {
+        "provisioningState": "Succeeded",
+        "resourceGuid": "0eff8a2f-479e-4f0d-8343-99d66ed00979",
+        "frontendIPConfigurations": [
+            {
+                "name": "LoadBalancerFrontEnd",
+                "id": "/subscriptions/737d6856-35c6-46bf-a9af-954ae0684a10/resourceGroups/OffSec/providers/Microsoft.Network/loadBalancers/OffSec-LB/frontendIPConfigurations/LoadBalancerFrontEnd",
+                "etag": "W/\"5da047cb-2637-497a-8227-8dff902385c2\"",
+                "type": "Microsoft.Network/loadBalancers/frontendIPConfigurations",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "privateIPAllocationMethod": "Dynamic",
+                    "publicIPAddress": {
+                        "id": "/subscriptions/737d6856-35c6-46bf-a9af-954ae0684a10/resourceGroups/OffSec/providers/Microsoft.Network/publicIPAddresses/OffSec-LB.com"
+                    },
+                    "loadBalancingRules": [
+                        {
+                            "id": "/subscriptions/737d6856-35c6-46bf-a9af-954ae0684a10/resourceGroups/OffSec/providers/Microsoft.Network/loadBalancers/OffSec-LB/loadBalancingRules/OffSec-LB-Rules"
+                        }
+                    ]
+                }
+            }
+        ],
+        "backendAddressPools": [
+            {
+                "name": "OffSec-Backend-Pool",
+                "id": "/subscriptions/737d6856-35c6-46bf-a9af-954ae0684a10/resourceGroups/OffSec/providers/Microsoft.Network/loadBalancers/OffSec-LB/backendAddressPools/OffSec-Backend-Pool",
+                "etag": "W/\"5da047cb-2637-497a-8227-8dff902385c2\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "backendIPConfigurations": [
+                        {
+                            "id": "/subscriptions/737d6856-35c6-46bf-a9af-954ae0684a10/resourceGroups/OffSec/providers/Microsoft.Network/networkInterfaces/offsec-web-3560/ipConfigurations/ipconfig1"
+                        },
+                        {
+                            "id": "/subscriptions/737d6856-35c6-46bf-a9af-954ae0684a10/resourceGroups/OffSec/providers/Microsoft.Network/networkInterfaces/offsec-web-1460/ipConfigurations/ipconfig1"
+                        },
+                        {
+                            "id": "/subscriptions/737d6856-35c6-46bf-a9af-954ae0684a10/resourceGroups/OffSec/providers/Microsoft.Network/networkInterfaces/offsec-web-2675/ipConfigurations/ipconfig1"
+                        }
+                    ],
+                    "loadBalancingRules": [
+                        {
+                            "id": "/subscriptions/737d6856-35c6-46bf-a9af-954ae0684a10/resourceGroups/OffSec/providers/Microsoft.Network/loadBalancers/OffSec-LB/loadBalancingRules/OffSec-LB-Rules"
+                        }
+                    ]
+                },
+                "type": "Microsoft.Network/loadBalancers/backendAddressPools"
+            }
+        ],
+        "loadBalancingRules": [
+            {
+                "name": "OffSec-LB-Rules",
+                "id": "/subscriptions/737d6856-35c6-46bf-a9af-954ae0684a10/resourceGroups/OffSec/providers/Microsoft.Network/loadBalancers/OffSec-LB/loadBalancingRules/OffSec-LB-Rules",
+                "etag": "W/\"5da047cb-2637-497a-8227-8dff902385c2\"",
+                "type": "Microsoft.Network/loadBalancers/loadBalancingRules",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "frontendIPConfiguration": {
+                        "id": "/subscriptions/737d6856-35c6-46bf-a9af-954ae0684a10/resourceGroups/OffSec/providers/Microsoft.Network/loadBalancers/OffSec-LB/frontendIPConfigurations/LoadBalancerFrontEnd"
+                    },
+                    "frontendPort": 80,
+                    "backendPort": 80,
+                    "enableFloatingIP": false,
+                    "idleTimeoutInMinutes": 4,
+                    "protocol": "Tcp",
+                    "loadDistribution": "SourceIPProtocol",
+                    "backendAddressPool": {
+                        "id": "/subscriptions/737d6856-35c6-46bf-a9af-954ae0684a10/resourceGroups/OffSec/providers/Microsoft.Network/loadBalancers/OffSec-LB/backendAddressPools/OffSec-Backend-Pool"
+                    },
+                    "probe": {
+                        "id": "/subscriptions/737d6856-35c6-46bf-a9af-954ae0684a10/resourceGroups/OffSec/providers/Microsoft.Network/loadBalancers/OffSec-LB/probes/OffSec-LB-HP"
+                    }
+                }
+            }
+        ],
+        "probes": [
+            {
+                "name": "OffSec-LB-HP",
+                "id": "/subscriptions/737d6856-35c6-46bf-a9af-954ae0684a10/resourceGroups/OffSec/providers/Microsoft.Network/loadBalancers/OffSec-LB/probes/OffSec-LB-HP",
+                "etag": "W/\"5da047cb-2637-497a-8227-8dff902385c2\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "protocol": "Tcp",
+                    "port": 80,
+                    "intervalInSeconds": 5,
+                    "numberOfProbes": 2,
+                    "loadBalancingRules": [
+                        {
+                            "id": "/subscriptions/737d6856-35c6-46bf-a9af-954ae0684a10/resourceGroups/OffSec/providers/Microsoft.Network/loadBalancers/OffSec-LB/loadBalancingRules/OffSec-LB-Rules"
+                        }
+                    ]
+                },
+                "type": "Microsoft.Network/loadBalancers/probes"
+            }
+        ],
+        "inboundNatRules": [],
+        "inboundNatPools": []
+    },
+    "sku": {
+        "name": "Basic"
+    }
+}

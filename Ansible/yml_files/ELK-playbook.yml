@@ -1,0 +1,51 @@
+---
+# Set up ELK Machine to monitor the DVWA machines
+- name: Configure ELK
+  hosts: elk
+  remote_user: azadmin
+  become: true
+  tasks:
+
+    #Install docker
+  - name: install docker.io
+    apt:
+      force_apt_get: yes
+      update_cache: yes
+      name: docker.io
+      state: present
+    #Install pip3 to then use the Python Docker module
+  - name: install pip3
+    apt:
+      name: python3-pip
+      state: present
+    #Install Docker module    
+  - name: install Python Docker Module
+    pip:
+      name: docker
+      state: present
+    #Increase maximum virtual memory
+  - name: Increase Virtual Memory
+    command: sysctl -w vm.max_map_count=262144
+    #Enable ELK to use increased virtual memory
+  - name: use more Memory
+    sysctl:
+      name: vm.max_map_count
+      value: "262144"
+      state: present
+      reload: yes
+    #Download and launch ELK container
+  - name: download and launch ELK container
+    docker_container:
+      name: elk
+      image: sebp/elk:761
+      state: started
+      restart_policy: always
+      published_ports:
+        - 5601:5601
+        - 9200:9200 
+        - 5044:5044
+    #Ensure container will start on boot
+  - name: Enable service docker on boot
+    systemd:
+      name: docker
+      enabled: yes

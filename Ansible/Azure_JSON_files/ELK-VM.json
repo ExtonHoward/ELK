@@ -1,0 +1,61 @@
+{
+    "name": "ELK-1",
+    "id": "/subscriptions/737d6856-35c6-46bf-a9af-954ae0684a10/resourceGroups/OFFSEC/providers/Microsoft.Compute/virtualMachines/ELK-1",
+    "type": "Microsoft.Compute/virtualMachines",
+    "location": "eastus",
+    "properties": {
+        "vmId": "8cb0b339-34ad-4b0b-95bd-8b3c59400a69",
+        "hardwareProfile": {
+            "vmSize": "Standard_B2ms"
+        },
+        "storageProfile": {
+            "imageReference": {
+                "publisher": "Canonical",
+                "offer": "UbuntuServer",
+                "sku": "18.04-LTS",
+                "version": "latest"
+            },
+            "osDisk": {
+                "osType": "Linux",
+                "name": "ELK-1_disk1_fea7a2524c49420cbe1bcb9831198d7a",
+                "createOption": "FromImage",
+                "caching": "ReadWrite",
+                "managedDisk": {
+                    "storageAccountType": "Premium_LRS",
+                    "id": "/subscriptions/737d6856-35c6-46bf-a9af-954ae0684a10/resourceGroups/OFFSEC/providers/Microsoft.Compute/disks/ELK-1_disk1_fea7a2524c49420cbe1bcb9831198d7a"
+                },
+                "diskSizeGB": 30
+            },
+            "dataDisks": []
+        },
+        "osProfile": {
+            "computerName": "ELK-1",
+            "adminUsername": "azadmin",
+            "linuxConfiguration": {
+                "disablePasswordAuthentication": true,
+                "ssh": {
+                    "publicKeys": [
+                        {
+                            "path": "/home/azadmin/.ssh/authorized_keys",
+                            "keyData": "redacted"
+                        }
+                    ]
+                }
+            },
+            "secrets": []
+        },
+        "networkProfile": {
+            "networkInterfaces": [
+                {
+                    "id": "/subscriptions/737d6856-35c6-46bf-a9af-954ae0684a10/resourceGroups/OffSec/providers/Microsoft.Network/networkInterfaces/elk-1688"
+                }
+            ]
+        },
+        "diagnosticsProfile": {
+            "bootDiagnostics": {
+                "enabled": true
+            }
+        },
+        "provisioningState": "Succeeded"
+    }
+}

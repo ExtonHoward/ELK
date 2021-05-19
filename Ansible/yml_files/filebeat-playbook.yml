@@ -1,0 +1,33 @@
+---
+# Install Filebeat onto the DVWA machines to assist the ELK machine
+- name: installing and launching filebeat
+  hosts: webservers
+  become: yes
+  tasks:
+
+    #Download filebeat file
+  - name: download filebeat deb
+    command: curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.4.0-amd64.deb
+    #Install
+  - name: install filebeat deb
+    command: dpkg -i filebeat-7.4.0-amd64.deb
+    #Locate config file in appropriate directory
+  - name: drop in filebeat.yml 
+    copy:
+      src: /etc/ansible/files/filebeat-config.yml
+      dest: /etc/filebeat/filebeat.yml
+    #Enable & configure the module
+  - name: enable and configure system module
+    command: filebeat modules enable system
+    #Setup the module
+  - name: setup filebeat
+    command: filebeat setup -e
+    #Start the module
+  - name: start filebeat service
+    command: service filebeat start
+    #Enable container to start on boot
+  - name: enable service filebeat on boot
+    systemd:
+      name: filebeat
+      enabled: yes
+

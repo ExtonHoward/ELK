@@ -1,0 +1,62 @@
+1. Add the sample web log data to Kibana.
+
+2. Answer the following questions:
+In the last 7 days, how many unique visitors were located in India?
+    223
+In the last 24 hours, of the visitors from China, how many were using Mac OSX?
+    14
+In the last 2 days, what percentage of visitors received 404 errors? How about 503 errors?
+    404:  100%
+    503: 0%
+In the last 7 days, what country produced the majority of the traffic on the website?
+    China
+Of the traffic that's coming from that country, what time of day had the highest amount of activity?
+    12
+List all the types of downloaded files that have been identified for the last 7 days, along with a short description of each file type (use Google if you aren't sure about a particular file type).
+    gz
+        GNU zip archive
+    css
+        Webscript
+    zip
+        Compressed file
+    deb
+        Debian Software package
+    rpm
+        Red Hat Package manager file
+
+3. Now that you have a feel for the data, Let's dive a bit deeper. Look at the chart that shows Unique Visitors Vs. Average Bytes.
+Locate the time frame in the last 7 days with the most amount of bytes (activity). 
+In your own words, is there anything that seems potentially strange about this activity? 
+    There is a dramatic increase of traffic coming from 1 source
+
+4. Filter the data by this event.
+What is the timestamp for this event? 
+    May 16, 2021 @21:00:00.0 -> May 17, 2021 @ 00:00:00.0
+What kind of file was downloaded? 
+    Rpm file
+From what country did this activity originate? 
+    India
+What HTTP response codes were encountered by this visitor? 
+    200 – ok response
+5. Switch to the Kibana Discover page to see more details about this activity.
+What is the source IP address of this activity? 
+    35.143.166.159
+What are the geo coordinates of this activity? 
+    { "lat": 43.34121, "lon": -73.6103075 }
+What OS was the source machine running? 
+    Linux
+
+What is the full URL that was accessed? 
+    http://facebook.com/success/jay-c-buckey
+From what website did the visitor's traffic originate? 
+    artifacts.elastic.co 
+
+6. Finish your investigation with a short overview of your insights.
+What do you think the user was doing? 
+    Downloading a new metricbeats file
+Was the file they downloaded malicious? If not, what is the file used for? 
+    It is a package manager for a Red Hat system.
+Is there anything that seems suspicious about this activity? 
+    It took hours to download so that seems out of place
+Is any of the traffic you inspected potentially outside of compliance guidlines?
+    

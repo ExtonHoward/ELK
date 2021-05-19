@@ -1,0 +1,9 @@
+{
+    "id": "/subscriptions/737d6856-35c6-46bf-a9af-954ae0684a10/resourceGroups/OffSec",
+    "name": "OffSec",
+    "location": "eastus2",
+    "tags": {},
+    "properties": {
+        "provisioningState": "Succeeded"
+    }
+}

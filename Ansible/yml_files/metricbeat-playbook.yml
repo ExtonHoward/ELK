@@ -1,0 +1,34 @@
+---
+# Install Metricbeat onto the DVWA machines to assist the ELK machine
+- name: Install metric beat
+  hosts: webservers
+  become: true
+  tasks:
+
+    #Download Metricbeat file
+  - name: Download metricbeat
+    command: curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.6.1-amd64.deb
+    #Install
+  - name: install metricbeat
+    command: dpkg -i metricbeat-7.6.1-amd64.deb
+    #move config file into appropriate directory
+  - name: drop in metricbeat config
+    copy:
+      src: /etc/ansible/files/metricbeat-config.yml
+      dest: /etc/metricbeat/metricbeat.yml
+    #Enable & configure the module
+  - name: enable and configure docker module for metric beat
+    command: metricbeat modules enable docker
+    #Setup the module
+  - name: setup metric beat
+    command: metricbeat setup
+    #Start the module
+  - name: start metric beat
+    command: service metricbeat start
+    #Enable container to start on boot
+  - name: enable service metricbeat on boot
+    systemd:
+      name: metricbeat
+      enabled: yes
+
+

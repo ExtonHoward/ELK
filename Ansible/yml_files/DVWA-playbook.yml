@@ -1,0 +1,37 @@
+---
+# Set up target machines with the DVWA (Damn Vulnerable Web Application)
+- name: Configure DVWA Web VM
+  hosts: webservers
+  become: true
+  tasks:
+
+    #install docker
+  - name: install docker.io
+    apt:
+      force_apt_get: yes
+      update_cache: yes
+      name: docker.io
+      state: present
+    #install pip3 to then use the Python Docker module
+  - name: install pip3
+    apt:
+      name: python3-pip
+      state: present
+    #Install Docker module
+  - name: install Python Docker Module
+    pip:
+      name: docker
+      state: present
+    #Launch the container for the webapp & open port 80
+  - name: download and launch a docker web container
+    docker_container:
+      name: dvwa
+      image: cyberxsecurity/dvwa
+      state: started
+      restart_policy: always
+      published_ports: 80:80
+    #enable docker to run at boot
+  - name: Enable docker service
+    systemd:
+      name: docker
+      enabled: yes

@@ -1,0 +1,34 @@
+{
+    "name": "OffSec-VNET-East",
+    "id": "/subscriptions/737d6856-35c6-46bf-a9af-954ae0684a10/resourceGroups/OffSec/providers/Microsoft.Network/virtualNetworks/OffSec-VNET-East",
+    "etag": "W/\"b798de64-fd30-4beb-beb5-363476b3abe5\"",
+    "type": "Microsoft.Network/virtualNetworks",
+    "location": "eastus",
+    "tags": {},
+    "properties": {
+        "provisioningState": "Succeeded",
+        "resourceGuid": "b1dc2c76-a724-4682-9922-d963bedaa2e3",
+        "addressSpace": {
+            "addressPrefixes": [
+                "10.2.0.0/16"
+            ]
+        },
+        "subnets": [
+            {
+                "name": "OffSec-subnet-East",
+                "id": "/subscriptions/737d6856-35c6-46bf-a9af-954ae0684a10/resourceGroups/OffSec/providers/Microsoft.Network/virtualNetworks/OffSec-VNET-East/subnets/OffSec-subnet-East",
+                "etag": "W/\"b798de64-fd30-4beb-beb5-363476b3abe5\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "addressPrefix": "10.2.0.0/24",
+                    "ipConfigurations": [
+                        {
+                            "id": "/subscriptions/737d6856-35c6-46bf-a9af-954ae0684a10/resourceGroups/OffSec/providers/Microsoft.Network/networkInterfaces/elk-1688/ipConfigurations/ipconfig1"
+                        }
+                    ]
+                },
+                "type": "Microsoft.Network/virtualNetworks/subnets"
+            }
+        ]
+    }
+}
