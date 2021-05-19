@@ -4,7 +4,7 @@ ELK stands for Elasticsearch, Logstash, and Kibana. It is being promoted by Elas
 
 This implementation of ELK stack is designed to run on Microsoft Azure on Linux Ubuntu machines. The JSON setup files for Microsoft azure can be found at the following link. The SSH keys have been redacted & will have to be recreated. The default system admin account has also been changed from azureadmin to azadmin
 
-![alt text](https://github.com/ExtonHoward/ELK-Project/tree/main/Azure_JSON_files "Network Diagram")
+![alt text](https://github.com/ExtonHoward/ELK/blob/main/Ansible/Resources/Network-Topology.png "Network Diagram")
 
 This ELK is pre-configured with the following privileged user account.
 
@@ -105,7 +105,7 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![alt test](https://github.com/ExtonHoward/ELK-Project/blob/main/README/README/Images/Success.JPG "Success")
+![alt test](https://github.com/ExtonHoward/ELK/blob/main/Ansible/Resources/Success.JPG "Success")
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
