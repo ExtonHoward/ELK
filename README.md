@@ -28,7 +28,7 @@ These files have been tested and used to generate a live ELK deployment on Azure
 
   - https://github.com/ExtonHoward/ELK/blob/main/Ansible/yml_files/Deployment-playbook.yml
 
-Additionally, the other YML config files for Filebeat & Metricbeat are located at https://github.com/ExtonHoward/ELK/blob/main/Ansible/yml_files/Filebeat-config.yml and https://github.com/ExtonHoward/ELK/blob/main/Ansible/yml_files/metricbeat-config.yml respectively. The shorter yml files for each independent portion of the install are located https://github.com/ExtonHoward/ELK/tree/main/Ansible/yml_files 
+Additionally, the other YML config files for Filebeat & Metricbeat are located at https://github.com/ExtonHoward/ELK/blob/main/Ansible/yml_files/Filebeat-config.yml and https://github.com/ExtonHoward/ELK/blob/main/Ansible/yml_files/metricbeat-config.yml respectively. The shorter yml files for each independent portion of the install are located https://github.com/ExtonHoward/ELK/tree/main/Ansible/yml_files
 
 This document contains the following details:
 - Description of the Topology
