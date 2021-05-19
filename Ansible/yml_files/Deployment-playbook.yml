@@ -147,13 +147,13 @@
       src: /etc/ansible/files/metricbeat-config.yml
       dest: /etc/metricbeat/metricbeat.yml
     #Enable & configure the module
-  - name: enable and configure docker module for metric beat
+  - name: enable and configure docker module for metricbeat
     command: metricbeat modules enable docker
     #Setup the module
-  - name: setup metric beat
+  - name: setup metricbeat
     command: metricbeat setup
     #Start the module
-  - name: start metric beat
+  - name: start metricbeat
     command: service metricbeat start
     #Enable container to start on boot
   - name: enable service metricbeat on boot
