@@ -145,11 +145,11 @@ Once the docker is setup, run this command to start the ansible-docker in the ju
 `sudo docker run -ti cyberxsecurity/ansible bash`
 
 Note: Only use `docker run` if you are setting up a new instance of the docker containers. If you are intending to start an existing docker container, use the following commands. After the first call, identify the docker container & add that name to the start & attach commands
-
-`sudo docker container list -a`
-`sudo docker start <DESIRED CONTAINER NAME>`
-`sudo docker attach <DESIRED CONTAINER NAME>`
-
+```
+sudo docker container list -a
+sudo docker start <DESIRED CONTAINER NAME>
+sudo docker attach <DESIRED CONTAINER NAME>
+```
 Now that you are attached, run the following command to make a directory and place the filebeat-config.yml and metricbeat-config.yml in it
 
 `mkdir /etc/ansible/files`
@@ -159,10 +159,10 @@ place the Deployment-playbook.yml in the /etc/ansible/roles directory
 edit the /etc/ansible/hosts file with the correct webserver VM's local IP addresses. To do this, you will have to uncomment the Webserver lines (located on line 20) and you will have to add the elk group with the elk local IP address. After you are done with that, open the /etc/ansible/ansible.cfg file and edit the `remote_user` (on line 107) to switch the username to the same username you setup when you created your VM's
 
 Run the following command to setup your ssh keys & then manually load them into each of your web-VM's & the ELk-VM
-
-`ssh-keygen`
-`cat ~/.ssh/id_rsa.pub`
-
+```
+ssh-keygen
+cat ~/.ssh/id_rsa.pub
+```
 After that has been done, run the following command to deploy the DVWA container, the Metricbeat, and the Filebeat on the Web-VM's & the ELK container onto the ELK-VM
 
 `ansible-playbook /etc/ansible/roles/Deployment-playbook.yml`
