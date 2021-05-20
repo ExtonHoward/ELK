@@ -109,7 +109,7 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- 10.1.0.5, 10.1.0.6, 10.1.0.7
+- The Web servers with internal IP addresses of 10.1.0.5, 10.1.0.6, 10.1.0.7
 
 We have installed the following Beats on these machines:
 - Installed Filebeat & Metricbeat on each machine
