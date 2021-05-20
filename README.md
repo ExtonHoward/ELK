@@ -44,16 +44,16 @@ This document contains the following details:
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the Damn Vulnerable Web Application.
 
 Load balancing ensures that the application will be highly redundant and resilient, in addition to restricting access to the network.
-- The Load Balancers allow access to the regularly not available Web-VM's that are loaded with the docker containers for the DVWA, Filebeat, and Metricbeat
+- The Load Balancers allow access to the regularly not available Web-VM's that are loaded with the docker containers for the DVWA, Filebeat, and Metricbeat.
   Placing them behind the load balancer allows the load to be spread out across multiple machines in case a machine goes down. 
 
 - The jump Box limits access to the rest of the network as you have to ssh to the jump box, then move into the docker container, then move to any of the other
   machines in the network. This allows a single point of entry which makes it easier to monitor. It also allows more robust security procedures to be deployed
-  to the jump box in order to make the entire network more secure
+  to the jump box in order to make the entire network more secure.
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the network and system files.
-- Filebeat is used to monitor log data, events, and files, then forwards them to either Elasticsearch or Logstash 
-- Metricbeat is used to collect different metrics from the OS and services running on the server
+- Filebeat is used to monitor log data, events, and files, then forwards them to either Elasticsearch or Logstash.
+- Metricbeat is used to collect different metrics from the OS and services running on the server.
 
 The configuration details of each machine may be found below.
 
@@ -115,8 +115,8 @@ We have installed the following Beats on these machines:
 - Installed Filebeat & Metricbeat on each machine
 
 These Beats allow us to collect the following information from each machine:
-- Filebeat collects log data which allows us to monitor traffic on the devices
-- Metricbeat collects data from servers such as OS data, CPU or memory data, or data about anything running on the server
+- Filebeat collects log data which allows us to monitor traffic on the devices.
+- Metricbeat collects data from servers such as OS data, CPU or memory data, or data about anything running on the server.
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
@@ -156,14 +156,14 @@ mkdir /etc/ansible/files
 ```
 place the Deployment-playbook.yml in the /etc/ansible/roles directory
 
-edit the /etc/ansible/hosts file with the correct webserver VM's local IP addresses. To do this, you will have to uncomment the Webserver lines (located on line 20) and you will have to add the elk group with the elk local IP address. After you are done with that, open the /etc/ansible/ansible.cfg file and edit the `remote_user` (on line 107) to switch the username to the same username you setup when you created your VM's
+edit the /etc/ansible/hosts file with the correct webserver VM's local IP addresses. To do this, you will have to uncomment the Webserver lines (located on line 20) and you will have to add the elk group with the elk local IP address. After you are done with that, open the /etc/ansible/ansible.cfg file and edit the `remote_user` (on line 107) to switch the username to the same username you setup when you created your VM's.
 
 Run the following command to setup your ssh keys & then manually load them into each of your web-VM's & the ELk-VM
 ```
 ssh-keygen
 cat ~/.ssh/id_rsa.pub
 ```
-After that has been done, run the following command to deploy the DVWA container, the Metricbeat, and the Filebeat on the Web-VM's & the ELK container onto the ELK-VM
+After that has been done, run the following command in the docker container to deploy the DVWA container, the Metricbeat, and the Filebeat on the Web-VM's & the ELK container onto the ELK-VM
 ```
 ansible-playbook /etc/ansible/roles/Deployment-playbook.yml
 ```
