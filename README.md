@@ -150,7 +150,7 @@ sudo docker container list -a
 sudo docker start <DESIRED CONTAINER NAME>
 sudo docker attach <DESIRED CONTAINER NAME>
 ```
-Now that you are attached, run the following command to make a directory and place the filebeat-config.yml and metricbeat-config.yml in it
+Now that you are attached, run the following command to make a directory and place the filebeat-config.yml and metricbeat-config.yml in it. Inside the appropriate beats config files, update the kibana & elastic options with the desired local IP's. In the Filebeat-config.yml, the lines to change are 1105 & 1804. In the Metricbeat-config.yml file the line to change is 61.
 ```
 mkdir /etc/ansible/files
 ```
