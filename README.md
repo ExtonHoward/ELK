@@ -4,12 +4,12 @@ ELK stands for Elasticsearch, Logstash, and Kibana. It is being promoted by Elas
 
 This implementation of ELK stack is designed to run on Microsoft Azure on Linux Ubuntu machines. The JSON setup files for Microsoft azure can be found at the following link. The SSH keys have been redacted & will have to be recreated. The default system admin account has also been changed from azureadmin to azadmin
 
-
+https://github.com/ExtonHoward/ELK/tree/main/Ansible/Azure_JSON_files
 
 This ELK is pre-configured with the following privileged user account.
 
-  User: elastic
-  Password: changeme
+ User: elastic
+ Password: changeme
 
 It is highly recommended to change this users account credentials immediately after setup
 
@@ -131,19 +131,19 @@ SSH into the control node and follow the steps below:
 Deployment (in detail)
 
 To get this, you will first have to clone the repo. You can do that with the command below
-
-`git clone https://github.com/ExtonHoward/ELK`
-
+```
+git clone https://github.com/ExtonHoward/ELK
+```
 Create a Jumpbox VM. The Jumpbox VirtualMachine is a single point for all incoming traffic to enter the network. This helps limit the points of entry that people or malicious actors could use to enter the network. Once inside the nextwork, the traffic must come from the jumpbox otherwise the firewall will shut it down. to do this, enable a firewall rule that allows ssh traffic from the jumpbox's local IP address. Once the VM is set up, ssh into it & run the "docker_setup.sh' script which is located at the following hyperlink. The command to run the script is
-
-`bash docker_setup.sh`
-
+```
+bash docker_setup.sh
+```
 https://github.com/ExtonHoward/ELK/blob/main/Linux/bash-scripts/docker_setup.sh
 
 Once the docker is setup, run this command to start the ansible-docker in the jumpbox
-
-`sudo docker run -ti cyberxsecurity/ansible bash`
-
+```
+sudo docker run -ti cyberxsecurity/ansible bash
+```
 Note: Only use `docker run` if you are setting up a new instance of the docker containers. If you are intending to start an existing docker container, use the following commands. After the first call, identify the docker container & add that name to the start & attach commands
 ```
 sudo docker container list -a
@@ -151,9 +151,9 @@ sudo docker start <DESIRED CONTAINER NAME>
 sudo docker attach <DESIRED CONTAINER NAME>
 ```
 Now that you are attached, run the following command to make a directory and place the filebeat-config.yml and metricbeat-config.yml in it
-
-`mkdir /etc/ansible/files`
-
+```
+mkdir /etc/ansible/files
+```
 place the Deployment-playbook.yml in the /etc/ansible/roles directory
 
 edit the /etc/ansible/hosts file with the correct webserver VM's local IP addresses. To do this, you will have to uncomment the Webserver lines (located on line 20) and you will have to add the elk group with the elk local IP address. After you are done with that, open the /etc/ansible/ansible.cfg file and edit the `remote_user` (on line 107) to switch the username to the same username you setup when you created your VM's
@@ -164,7 +164,7 @@ ssh-keygen
 cat ~/.ssh/id_rsa.pub
 ```
 After that has been done, run the following command to deploy the DVWA container, the Metricbeat, and the Filebeat on the Web-VM's & the ELK container onto the ELK-VM
-
-`ansible-playbook /etc/ansible/roles/Deployment-playbook.yml`
-
+```
+ansible-playbook /etc/ansible/roles/Deployment-playbook.yml
+```
 If you have errors, double check your IP addresses in the hosts file, the remote_user in the ansible.cfg, the SSH public key, and your firewall rules are all configured correctly
