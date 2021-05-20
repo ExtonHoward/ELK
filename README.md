@@ -133,6 +133,6 @@ _As a **Bonus**, provide the specific commands the user will need to run to down
 To get this, you will first have to clone the repo. You can do that with the command below
 
     
-      git clone https://github.com/ExtonHoward/ELK-Project
+      git clone https://github.com/ExtonHoward/ELK
     
     
