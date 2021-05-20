@@ -1,4 +1,4 @@
-#!/usr/bit/env bash
+#!/usr/bin/env bash
 
 # script it designed to simulate a wget DoS attack on target URL's. Never use this against
 # an IP address or target without explicit permission. The target IP addresses must be put

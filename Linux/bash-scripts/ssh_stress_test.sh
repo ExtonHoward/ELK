@@ -1,4 +1,4 @@
-#!/usr/bit/env bash
+#!/usr/bin/env bash
 
 # sciprt is designed to create an infinite number of failed ssh logins. The desired IP addresses
 # must be placed in a file called urls.txt in the same directory. Never use this against an IP
