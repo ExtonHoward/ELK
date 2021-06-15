@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-# script it designed to simulate a wget DoS attack on target URL's. Never use this against
+# script it designed to simulate a wget DoS attack on target URL's. This is not a full DoS attack,
+# it is only designed to show some stress on the networks. Never use this against
 # an IP address or target without explicit permission. The target IP addresses must be put
 # in a file called urls.txt in the same directory.
 # command break down
