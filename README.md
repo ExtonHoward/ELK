@@ -24,7 +24,7 @@ The files in this repository were used to configure the network depicted below.
 
 ![alt text](https://github.com/ExtonHoward/ELK/blob/main/Ansible/Resources/Network-Topology.png "Network Diagram")
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the Deployment-playbook.yml file may be used to install only certain pieces of it, such as Filebeat. The config giles should be placed in the /etc/ansible/files directory while the playbook should be placed in the /etc/ansible/roles directory. After the config files are placed in the /etc/ansible/files directory you need to make sure that the etc/ansibe/hosts file has the appropriate local IP numbers under the webservers and the elk groups.
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the Deployment-playbook.yml file may be used to install only certain pieces of it, such as Filebeat. The config giles should be placed in the /etc/ansible/files directory while the playbook should be placed in the /etc/ansible/roles directory. After the config files are placed in the /etc/ansible/files directory you need to make sure that the etc/ansible/hosts file has the appropriate local IP numbers under the webservers and the elk groups.
 
   - https://github.com/ExtonHoward/ELK/blob/main/Ansible/yml_files/Deployment-playbook.yml
 
@@ -109,7 +109,7 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- The Web servers with internal IP addresses of 10.1.0.5, 10.1.0.6, 10.1.0.7
+- The web servers with internal IP addresses of 10.1.0.5, 10.1.0.6, 10.1.0.7
 
 We have installed the following Beats on these machines:
 - Installed Filebeat & Metricbeat on each machine
@@ -124,7 +124,7 @@ In order to use the playbook, you will need to have an Ansible control node alre
 SSH into the control node and follow the steps below:
 - Copy the Deployment-playbook.yml file to /etc/ansible/roles
 - Update the /etc/ansible/ansible.cfg file to include the remote_user=(USERNAME FOR ADMIN OF EACH VIRTUAL MACHINE)
-- Update the /etc/ansible/hosts file to include the IP address in the webservers & ELK groups. Make certain to uncomment the webservers selection & add the
+- Update the /etc/ansible/hosts file to include the IP address in the web servers & ELK groups. Make certain to uncomment the web servers selection & add the
   ELK section so it will work
 - Run the playbook, and navigate to 52.188.120.165:5601/app/kibana to check that the installation worked as expected.
 
@@ -134,7 +134,7 @@ To get this, you will first have to clone the repo. You can do that with the com
 ```
 git clone https://github.com/ExtonHoward/ELK
 ```
-Create a Jumpbox VM. The Jumpbox VirtualMachine is a single point for all incoming traffic to enter the network. This helps limit the points of entry that people or malicious actors could use to enter the network. Once inside the nextwork, the traffic must come from the jumpbox otherwise the firewall will shut it down. to do this, enable a firewall rule that allows ssh traffic from the jumpbox's local IP address. Once the VM is set up, ssh into it & run the "docker_setup.sh' script which is located at the following hyperlink. The command to run the script is
+Create a Jumpbox VM. The Jumpbox Virtual Machine is a single point for all incoming traffic to enter the network. This helps limit the points of entry that people or malicious actors could use to enter the network. Once inside the network, the traffic must come from the jumpbox otherwise the firewall will shut it down. to do this, enable a firewall rule that allows ssh traffic from the Jumpbox's local IP address. Once the VM is set up, ssh into it & run the "docker_setup.sh' script which is located at the following hyperlink. The command to run the script is
 ```
 bash docker_setup.sh
 ```
@@ -156,7 +156,7 @@ mkdir /etc/ansible/files
 ```
 place the Deployment-playbook.yml in the /etc/ansible/roles directory
 
-edit the /etc/ansible/hosts file with the correct webserver VM's local IP addresses. To do this, you will have to uncomment the Webserver lines (located on line 20) and you will have to add the elk group with the elk local IP address. After you are done with that, open the /etc/ansible/ansible.cfg file and edit the `remote_user` (on line 107) to switch the username to the same username you setup when you created your VM's.
+edit the /etc/ansible/hosts file with the correct web server VM's local IP addresses. To do this, you will have to uncomment the Webserver lines (located on line 20) and you will have to add the elk group with the elk local IP address. After you are done with that, open the /etc/ansible/ansible.cfg file and edit the `remote_user` (on line 107) to switch the username to the same username you set up when you created your VM's.
 
 Run the following command to setup your ssh keys & then manually load them into each of your web-VM's & the ELk-VM
 ```
